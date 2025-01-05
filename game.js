@@ -37,13 +37,15 @@ function loserAnimate(){
 }
 
 // Listeners
-$("body").on("keydown", function(){ // Keys listener
+$("body").on("keydown touchstart", function(){ // Keys listener
     if(!gameStarted){
         setTimeout(startGame, 300);
     }
 });
 
-$(".btn").on("click", function(e){ // Buttons listener
+$(".btn").on("click touchstart", function(e){ // Buttons listener
+    e.preventDefault();
+
     // identify, animate color and add it to the userPattern
     let buttonColor = e.currentTarget.id;
     buttonAnimate(buttonColor);
